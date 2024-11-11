@@ -4,7 +4,7 @@
 Для того чтобы проект заработал, изначально нужно создать базу данных и поменять conf файл.
 
 **Рассмотрим базу данных:**
-Для работы нам понадобится 2 таблицы.
+Для работы нам понадобится 4 таблицы.
 
   1. Создаём базу данных в XAMPP.
   2. Называем базу данных, как угодно.
@@ -32,3 +32,19 @@
     Таблица "transactions"
     Структура таблицы:
     ![image](https://github.com/user-attachments/assets/c8971f68-ba06-4ee5-8629-c46d3146469c)
+
+  6. Четвёртая таблица
+    Таблица "cards"
+    Структура таблицы:
+    ![image](https://github.com/user-attachments/assets/c7205f59-eeac-47d9-8221-8f47d6dd8b54)
+
+````
+  CREATE TABLE cards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    artist VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    image_url VARCHAR(255) NOT NULL
+);
+````
