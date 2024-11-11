@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("conf.php");
-require_once("functions.php");
+//require_once("functions.php");
 global $connection;
 $isLoggedIn = isset($_SESSION['user_id']);
 

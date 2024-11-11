@@ -19,7 +19,10 @@ if ($isLoggedIn) {
             ];
         }
     }
-}
+
+    $cards_query = "SELECT title, description, artist, price, image_url FROM cards";
+    $result = $connection->query($cards_query);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -82,13 +85,16 @@ if ($isLoggedIn) {
             cursor: pointer;
         }
 
-        .cards {
+        .cards-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
-            margin: 40px 0;
+            gap: 20px;
+            padding: 20px;
         }
 
         .card {
+            flex: 0 0 calc(33.33% - 120px);
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             padding: 20px;
@@ -110,10 +116,10 @@ if ($isLoggedIn) {
 
         .card-title {
             font-size: 1.5rem;
-            margin: 15px 0;
+            margin: 10px 0;
         }
 
-        .card-text {
+        .card-artist {
             font-size: 1rem;
             margin-bottom: 10px;
         }
@@ -147,32 +153,17 @@ if ($isLoggedIn) {
         <?php endif; ?>
     </div>
 </header>
-<div class="cards">
-    <div class="card">
-        <img src="images/card1.jpg" alt="Стена и прочие друзья">
-        <div class="card-title">Стена и прочие друзья</div>
-        <div class="card-text">Убей меня, Эйс</div>
-        <div class="price">Цена: 25</div>
-        <button class="buy-btn" data-product="Стена и прочие друзья" data-price="25">Купить</button>
-    </div>
-
-    <div class="card">
-        <img src="images/card2.jpg" alt="Глаза. Рты.">
-        <div class="card-title">Глаза. Рты.</div>
-        <div class="card-text">Убей меня, Эйс</div>
-        <div class="price">Цена: 30</div>
-        <button class="buy-btn" data-product="Глаза. Рты." data-price="30">Купить</button>
-    </div>
-
-    <div class="card">
-        <img src="images/card3.jpg" alt="Хуже, чем вчера...">
-        <div class="card-title">Хуже, чем вчера...</div>
-        <div class="card-text">Убей меня, Эйс</div>
-        <div class="price">Цена: 120</div>
-        <button class="buy-btn" data-product="Хуже, чем вчера..." data-price="120">Купить</button>
-    </div>
+<div class="cards-container">
+    <?php while ($card = $result->fetch_assoc()): ?>
+        <div class="card">
+            <img src="images/<?php echo htmlspecialchars($card['image_url']); ?>" alt="<?php echo htmlspecialchars($card['title']); ?> album cover">
+            <div class="card-title"><?php echo htmlspecialchars($card['title']); ?></div>
+            <div class="card-artist"><?php echo htmlspecialchars($card['artist']); ?></div>
+            <div class="price">Цена: <?php echo htmlspecialchars($card['price']); ?> евро</div>
+            <button class="buy-btn" data-product="<?php echo htmlspecialchars($card['description']); ?>" data-price="<?php echo htmlspecialchars($card['price']); ?>">Купить</button>
+        </div>
+    <?php endwhile; ?>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -193,8 +184,6 @@ if ($isLoggedIn) {
 
                     if (data.status === 'success') {
                         alert(data.message);
-
-                        // Обновляем баланс на странице
                         $('#user-balance').text('Баланс: ' + data.new_balance + ' евро');
                     } else {
                         alert(data.message);
