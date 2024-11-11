@@ -47,4 +47,13 @@
     price DECIMAL(10, 2) NOT NULL,
     image_url VARCHAR(255) NOT NULL
 );
+
+INSERT INTO cards (title, description, artist, price, image_url) VALUES
+('Стена и прочие друзья', 'Убей меня, Эйс', 'Убей меня, Эйс', 25, 'images/card1.jpg'),
+('Глаза. Рты.', 'Убей меня, Эйс', 'Убей меня, Эйс', 30, 'images/card2.jpg'),
+('Хуже, чем вчера...', 'Убей меня, Эйс', 'Убей меня, Эйс', 120, 'images/card3.jpg'),
+('Adrenaline', 'Deftones', 'Deftones', 50, 'images/Deftones-Adrenaline.jpg'),
+('Around the fur', 'Deftones', 'Deftones', 120, 'images/Deftones-Around-the-fur.jpg'),
+('Covers', 'Deftones', 'Deftones', 70, 'images/Deftones-Covers.jpg');
+
 ````
