@@ -26,7 +26,8 @@
   4. Вторая таблица
      Таблица "purchases"
      Структура таблицы:
-     ![image](https://github.com/user-attachments/assets/a50408d9-9d2c-4dd7-9275-9ae822f525a4)
+     ![image](https://github.com/user-attachments/assets/d7de4717-6673-4279-915e-bffcbcf0f1ee)
+
 
   5. Третья таблица
     Таблица "transactions"
