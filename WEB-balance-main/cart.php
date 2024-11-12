@@ -35,6 +35,9 @@ if (!empty($_SESSION['cart'])){
                         <td><?php echo htmlspecialchars($item['price']); ?> евро</td>
                         <td><?php echo $item['quantity']; ?></td>
                         <td><?php echo $item['price'] * $item['quantity']; ?> евро</td>
+                        <td>
+                            <button class="btn btn-warning decrement-item-btn" data-product-id="<?php echo $item['product_id']; ?>">Удалить</button>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
@@ -55,11 +58,31 @@ if (!empty($_SESSION['cart'])){
 
             if (data.status === 'success') {
                 alert('Корзина успешно очищена.');
-                $total_price = 0;
+
                 $('#cart-items').html('<p>Корзина пуста.</p>');
                 $('#cart-count').text('0');
+                $('p:contains("Общая стоимость")').text('Общая стоимость: ' + data.total_price + ' евро');
             } else {
                 alert('Ошибка при очистке корзины.');
+            }
+        });
+    });
+
+    $(document).on('click', '.decrement-item-btn', function() {
+        var productId = $(this).data('product-id');
+
+        $.post('remove_from_cart.php', { product_id: productId }, function(response) {
+            var data = JSON.parse(response);
+
+            if (data.status === 'success') {
+                alert('Один товар успешно удален.');
+
+                // Обновляем корзину
+                $('#cart-items').html(data.cart_html);
+                $('#cart-count').text(data.cart_count);
+                $('p:contains("Общая стоимость")').text('Общая стоимость: ' + data.total_price + ' евро');
+            } else {
+                alert('Ошибка при удалении товара из корзины.');
             }
         });
     });

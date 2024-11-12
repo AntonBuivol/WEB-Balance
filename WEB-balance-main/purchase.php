@@ -30,9 +30,9 @@ if ($isLoggedIn) {
                 $stmt->execute();
                 $stmt->close();
 
-                $query = "INSERT INTO purchases (user_id, product_name, price) VALUES (?, ?, ?)";
+                $query = "INSERT INTO purchases (user_id, product_name, quantity,  price) VALUES (?, ?, ?, ?)";
                 $stmt = $connection->prepare($query);
-                $stmt->bind_param('isd', $user_id, $product, $price);
+                $stmt->bind_param('isd', $user_id, $product, $amount, $price);
                 $stmt->execute();
                 $stmt->close();
 

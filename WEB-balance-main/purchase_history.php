@@ -5,7 +5,7 @@ global $connection;
 
 $user_id = $_SESSION['user_id'];
 
-$query = "SELECT product_name, price, purchase_date FROM purchases WHERE user_id = ? ORDER BY purchase_date DESC";
+$query = "SELECT product_name, quantity, price, purchase_date FROM purchases WHERE user_id = ? ORDER BY purchase_date DESC";
 $stmt = $connection->prepare($query);
 $stmt->bind_param('i', $user_id);
 $stmt->execute();
@@ -99,6 +99,7 @@ $result = $stmt->get_result();
             <thead>
             <tr>
                 <th>Product</th>
+                <th>Amount</th>
                 <th>Price</th>
                 <th>Date of purchase</th>
             </tr>
@@ -107,6 +108,7 @@ $result = $stmt->get_result();
             <?php while ($row = $result->fetch_assoc()): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['product_name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['quantity']); ?></td>
                     <td><?php echo htmlspecialchars($row['price']); ?> euro</td>
                     <td><?php echo htmlspecialchars($row['purchase_date']); ?></td>
                 </tr>

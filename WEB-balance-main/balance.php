@@ -211,3 +211,21 @@ if ($isLoggedIn) {
 </script>
 
 <?php endif; ?>
+<script>
+    $('#paymentForm').submit(function (e) {
+        e.preventDefault(); // Предотвращение отправки формы
+
+        const amount = $('#amountInput').val();
+
+        $.post('create_payment.php', { amount: amount }, function (response) {
+            const data = JSON.parse(response);
+
+            if (data.status === 'success') {
+                alert(data.message);
+                location.reload(); // Перезагрузка страницы для обновления баланса
+            } else {
+                alert(data.message);
+            }
+        });
+    });
+</script>
