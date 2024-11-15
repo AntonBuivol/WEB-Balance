@@ -26,7 +26,8 @@
   4. Вторая таблица
      Таблица "purchases"
      Структура таблицы:
-     ![image](https://github.com/user-attachments/assets/a50408d9-9d2c-4dd7-9275-9ae822f525a4)
+     ![image](https://github.com/user-attachments/assets/d7de4717-6673-4279-915e-bffcbcf0f1ee)
+
 
   5. Третья таблица
     Таблица "transactions"
@@ -35,7 +36,8 @@
   6. Четвёртая таблица 
     Таблица "cards" 
     Структура таблицы: 
-    ![image](https://github.com/user-attachments/assets/4c34a2f0-e192-463d-a9c4-e2bed6f9a7aa)
+    ![image](https://github.com/user-attachments/assets/ca8fe662-3a18-45f1-ba55-dbf84cffa555)
+
 
 ````
   CREATE TABLE cards (
