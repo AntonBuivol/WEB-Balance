@@ -50,9 +50,11 @@ if ($isLoggedIn) {
                 .then(data => {
                     fx.rates = data.rates;
                     fx.base = "EUR";
+                    var convertedAmountEUR = balanceInEUR;
                     var convertedAmount = fx(balanceInEUR).from("EUR").to("RUB");
                     var convertedAmount2 = fx(balanceInEUR).from("EUR").to("USD");
 
+                    document.getElementById('balance-in-eur').innerText = convertedAmountEUR.toFixed(2) + " €";
                     document.getElementById('balance-in-rub').innerText = convertedAmount.toFixed(2) + " ₽";
                     document.getElementById('balance-in-dollar').innerText = convertedAmount2.toFixed(2) + " $";
                 })
@@ -163,7 +165,7 @@ if ($isLoggedIn) {
     <div>Электронная почта: <?php echo $userData["email"]; ?></div>
 
     <div class="balance-display">
-        <?php echo $balance; ?> €
+        <p id="balance-in-eur">Loading...</p>
     </div>
     <div class="balance-display">
         <p id="balance-in-rub">Loading...</p>

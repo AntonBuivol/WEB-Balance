@@ -3,6 +3,7 @@ session_start();
 require_once ('conf.php');
 global $connection;
 $isLoggedIn = isset($_SESSION['user_id']);
+
 if ($isLoggedIn) {
     $login = $_SESSION['user_id'];
 
@@ -19,10 +20,9 @@ if ($isLoggedIn) {
             ];
         }
     }
-
-    $cards_query = "SELECT id, title, description, artist, price, image_url FROM cards";
-    $result = $connection->query($cards_query);
-    }
+}
+$cards_query = "SELECT id, title, description, artist, price, image_url FROM cards";
+$result = $connection->query($cards_query);
 ?>
 
 <!DOCTYPE html>
@@ -166,7 +166,11 @@ if ($isLoggedIn) {
                                 data-product-id="<?php echo $card['id']; ?>"
                                 data-description="<?php echo $card['description']; ?>"
                                 data-title="<?php echo htmlspecialchars($card['title']); ?>"
+                        <?php if ($isLoggedIn): ?>
                                 data-price="<?php echo htmlspecialchars($card['price']); ?>">Добавить в корзину</button>
+                        <?php else: ?>
+                                not_loggedIn="">Добавить в корзину</button>
+                        <?php endif; ?>
                     </div>
                 <?php endwhile; ?>
             </div>
