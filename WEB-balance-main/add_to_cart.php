@@ -12,17 +12,12 @@ if (!isset($_SESSION['cart'])) {
 }
 
 // Проверка, есть ли уже товар в корзине
-$found = false;
-foreach ($_SESSION['cart'] as &$item) {
-    if ($item['product_id'] === $product_id) {
-        $item['quantity'] += 1;  // Увеличиваем количество
-        $found = true;
-        break;
-    }
-}
-
-if (!$found) {
-    $_SESSION['cart'][] = [
+if (isset($_SESSION['cart'][$product_id])) {
+    // Если товар уже есть, увеличиваем его количество
+    $_SESSION['cart'][$product_id]['quantity'] += 1;
+} else {
+    // Если товара нет, добавляем его
+    $_SESSION['cart'][$product_id] = [
         'product_id' => $product_id,
         'title' => $title,
         'description' => $description,

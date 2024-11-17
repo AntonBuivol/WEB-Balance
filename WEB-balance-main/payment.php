@@ -66,11 +66,68 @@ if ($current_balance >= $total_price) {
 <head>
     <meta charset="UTF-8">
     <title>Оплата заказа</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('images/background.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .message-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .message-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .message-container .message {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .message-container a {
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            background-color: #000;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .message-container a:hover {
+            background-color: #333;
+        }
+
+        .success {
+            color: #28a745;
+        }
+
+        .error {
+            color: #dc3545;
+        }
+    </style>
 </head>
 <body>
-<h1>Оплата заказа</h1>
-<p><?php echo $message; ?></p>
-<a href="balance.php">Пополнить баланс</a>
-<a href="index.php">Вернуться на главную страницу</a>
+<div class="message-container">
+    <h1>Статус оплаты</h1>
+    <p class="message <?php echo $current_balance >= $total_price ? 'success' : 'error'; ?>">
+        <?php echo $message; ?>
+    </p>
+    <div>
+        <a href="balance.php">Пополнить баланс</a>
+        <a href="index.php">Вернуться на главную страницу</a>
+    </div>
+</div>
 </body>
 </html>

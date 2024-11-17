@@ -109,7 +109,7 @@ if ($isLoggedIn) {
 </head>
 <body>
 <header class="header">
-    <h1>WEB-balance</h1>
+    <h1>WEB-Balance</h1>
     <div class="buttons">
         <button class="btn-transfer" onclick="window.location.href='index.php'">Home</button>
         <button class="btn-transfer" onclick="window.location.href='logout.php'">Logout</button>

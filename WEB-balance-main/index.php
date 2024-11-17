@@ -184,6 +184,8 @@ $result = $connection->query($cards_query);
                 var description = $(this).data('description');
                 var price = $(this).data('price');
 
+                console.log('Product ID:', productId, 'Title:', title, 'Description:', description, 'Price:', price); // для отладки
+
                 $.post('add_to_cart.php', {
                     product_id: productId,
                     title: title,
@@ -202,6 +204,7 @@ $result = $connection->query($cards_query);
                     }
                 });
             });
+
         </script>
     </body>
 </html>
