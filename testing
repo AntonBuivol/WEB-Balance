@@ -1,0 +1,67 @@
+describe(' Add to Cart Test with Login', () => {
+
+  beforeEach(() => {
+    cy.visit('https://antonbuivol22.thkit.ee/WEB-Balance/WEB-balance-main/index.php');
+    cy.wait(1000);
+    // Handle uncaught exceptions to prevent test failures due to unrelated errors.
+    cy.on('uncaught:exception', (err, runnable) => {
+      return false; // Ignoring exceptions
+    });
+  });
+
+  it('Login and add 5 random items to the cart', () => {
+    // Log in with the given username and password
+    cy.get('button[onclick*="login.php"]').click(); // Navigate to login page
+    cy.url().should('include', 'login.php'); // Ensure the login page is loaded
+    cy.wait(1000);
+    cy.get('input[name="username"]').type('maks'); // Type the username
+    cy.wait(1000);
+    cy.get('input[name="password"]').type('123456'); // Type the password
+    cy.wait(1000);
+    cy.get('button[type="submit"]').click(); // Submit the login form
+    cy.wait(1000);
+
+
+    // Wait for the login process to complete and verify successful login by checking the balance or cart
+    cy.url().should('not.include', 'login.php'); // Ensure we're no longer on the login page
+    cy.get('#user-balance').should('exist'); // Verify the balance element exists, indicating the user is logged in
+    cy.wait(1000);
+    // Now proceed with adding 5 random products to the cart
+    cy.get('.card').should('have.length.greaterThan', 0).then(($cards) => {
+      const getRandomElements = (array, count) => {
+        const shuffled = array.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+      };
+
+      const randomCards = getRandomElements($cards.toArray(), Math.min(5, $cards.length));
+
+      cy.log('Randomly selected cards:', randomCards.map(card => card.querySelector('.card-title').innerText.trim()));
+
+      randomCards.forEach((card) => {
+        cy.wrap(card).find('.add-to-cart-btn').click(); // Click "Add to Cart" button
+        cy.wait(2000); // Wait briefly for the action to complete
+      });
+      cy.wait(1000);
+      // Navigate to the cart page
+      cy.get('button[onclick*="cart.php"]').click();
+      cy.wait(1000);
+
+      cy.get('button[onclick="window.location.href=\'checkout.php\'"]').click();
+
+      // Verify that the URL is now 'checkout.php'
+      cy.url().should('include', 'checkout.php');
+      cy.get('input[name="name"]').type('maks');
+      cy.wait(1000);
+      cy.get('textarea[name="address"]').type('tallinn');
+      cy.wait(1000);
+      cy.get('input[name="phone"]').type('372555222'); // Type the username
+      cy.wait(1000);
+      cy.get('button[type="submit"]').click(); // Submit the login form
+      cy.wait(1000);
+      // Log the page title after the redirect
+      cy.title().then((title) => {
+        cy.log(`Current page title after checkout: ${title}`);
+      });
+    });
+  });
+});
