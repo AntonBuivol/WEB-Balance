@@ -2,7 +2,7 @@
 
 **Team(Martin Nõmmiste, Anton Buivol, Maksym Miskevych)**
 ## 1. link to the site [Web-balance](https://antonbuivol22.thkit.ee/WEB-Balance/WEB-balance-main/index.php)
-## 2. [Technical documentation]([https://github.com/AntonBuivol/WEB-Balance/tree/Martin](https://github.com/AntonBuivol/WEB-Balance/blob/Martin/WEB-balance-main/README.md)) link to work with the attached Readme (technical documentation) file, which describes the project and how we did it
+## 2. [Technical documentation](https://github.com/AntonBuivol/WEB-Balance/blob/Martin/WEB-balance-main/README.md) link to work with the attached Readme (technical documentation) file, which describes the project and how we did it
 ## 3. added jira tasks, who did what and also added descriptions for each task in detail ![pilt](https://github.com/user-attachments/assets/f8d35668-063a-452d-9857-8c315900a78e) 
 
 ## 4. [testing](https://github.com/AntonBuivol/WEB-Balance/tree/Martin/sitetesting)  We added testing so that a user would enter, 5 products would be randomly added to the cart and paid for, we also added a readme where all the tests and their descriptions are described
