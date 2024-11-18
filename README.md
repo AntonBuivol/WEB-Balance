@@ -7,66 +7,55 @@
 
 ## 4. [testing](https://github.com/AntonBuivol/WEB-Balance/tree/Martin/sitetesting)  We added testing so that a user would enter, 5 products would be randomly added to the cart and paid for, we also added a readme where all the tests and their descriptions are described
 ## 5. development process 
-### 1. Idea and Requirements Analysis
-* Collecting ideas from the team and users: At this stage, it is important to gather opinions from both our team
-and users to understand which features they consider important and useful for our product.
-* Defining business goals and feature value: We analyze how the new feature will help achieve business objectives,
-such as improving user experience or increasing sales.
-### 2. Technical Analysis and Assessment
-* Developing technical requirements: Here, I need to define which technologies and tools will be used for
-implementing the feature and what tasks need to be solved from a technical perspective.
-* Estimating effort and time for task completion: I estimate how much time we need to implement the feature and
-which stages of development need to be prioritized.
-### 3. Design and Prototyping
-* Developing UI/UX design, mockups, and prototypes: It's important to think about how the feature will look from
-a user’s perspective. I participate in developing interface mockups and prototypes.
-* Prototyping and user testing: Based on the prototype, we test the interface with users to understand how
-comfortable they are interacting with the new features.
-### 4. Planning and Prioritization
-* Breaking down the feature into subtasks: We break the feature into smaller parts
-so that each team can focus on completing their specific task.
-* Defining task priorities: We determine which tasks are more important for
-implementing the feature and when they need to be completed to stay on track.
-### 5. Development
-* Writing and testing code: At this stage, I write the code that implements the new
-feature and immediately test it to ensure it works correctly.
-* Adhering to coding standards and team conventions: I follow common coding
-standards to ensure the code is clear for other developers and easy to maintain in
-the future.
-### 6. Testing
-* Writing unit and integration tests: I create tests for individual parts of the code to
-make sure everything works correctly and test how they interact with each other.
-* Performance and security testing: We check how the new feature impacts the
-system's performance and ensure it is secure for users.
-### 7. Code Review
-* Conducting code reviews within the team: I show my code to my colleagues for
-feedback on errors and improvements to ensure the feature works as expected.
-* Addressing colleagues' comments and improving the feature: I make changes to
-the code based on feedback from colleagues to enhance the solution’s quality.
-### 8. Documentation
-* Writing technical documentation for the development team: I describe how the
-feature was implemented, which technologies were used, and how it works so that
-other developers can understand what was done.
-* Updating user documentation: I update guides and FAQs for users so they can
-quickly understand how to use the new feature.
-### 9. Pre-release Testing (on staging)
-* Testing on staging server: I test the feature on a server that closely mirrors the
-production environment to ensure everything works correctly before the release.
-* Smoke testing and UAT: We perform basic functionality testing and test it with users
-to confirm the feature is ready for use.
-### 10. Release
-* Preparing the release version: I participate in preparing the final version of the
-feature for release, checking that everything is ready for deployment.
-* Updating and deploying to production: After verification, I help deploy the feature
-to the live server so that users can start using it.
-### 11. Monitoring and Support
-* Monitoring performance metrics and logs: After release, I keep track of system
-metrics to ensure the new feature doesn’t cause any performance issues.
-* Collecting feedback from users: I gather user feedback about the new feature to
-quickly identify any issues and improve functionality.
-### 12. Retrospective
-* Analyzing the work done: We, as a team, discuss how the development process
-went, what worked well, and what could have been done better.
-* Discussing the experience gained during the feature implementation: I draw
-conclusions from the development experience to improve processes in the future.
+### 1. Идея и анализ требований
+* отправка денег между пользователями, платежная система
+* обучение собственная платежная система 
+* подростки заказывать любимую музыку
+* мы считаем наш сайт конкуретно способным так как у нас ограниченная коллекция и этого как у нас нету
+### Технический анализ и оценка
+* доступно в веб браузере в открытом доступе оптимизировано так же под телефон
+* трудозатраты были достаточно емкими но мы успели в срок
+* архитектура сайта понятно и проста
+* мы утвердили планы и приступили к работе
+### проектирование и дизайн
+* разработка собственного дизайна и интерефейса согласована под стиль продаваемого товара
+* обрабатываются данные пользователя и их корзины, начисление и снятие денег пользователя все синхронизировано в базе данных
+* Создание прототипов, которые затем можно протестировать на реальных пользователях, чтобы получить обратную связь и улучшить интерфейс или функционал.
+### Планирование и приоритизация
+* Большую задачу нужно разбить на меньшие, чтобы упростить процесс разработки и отслеживания прогресса.
+* Важно расставить приоритеты, чтобы сначала реализовать самые сложные и важные части фичи, которые влияют на основные функции продукта.
+* Все задачи мы записываем в бэклог Jira для того что бы разделить работу между участниками и были понятны задачи всем
+### Разработка
+* После написания небольшой части кода проверяем на правильность работы сайта что бы в будущем не было проблем
+* посколько у нас 3 участника мы делаем коммиты что бы всегда знать что изменилось в коде для всех и так же делали свои ветки и merge
+* Все участники пишут понятный код для других и добавляют коментарии
+### Тестирование
+* мы создавали тесты что бы проверить корректность работы модулей между собой
+* в начале написания кода мы сами вручную проверяли работоспособность кода после того как мы закончили мы сделали это автоматически через cypress
+* проверили все кнопки ли работают и перенаправляют куда нужно
+* мы будем делать нагрузные автоматические тесты для сайта что бы проверить его под нагрузкой безопасноть шифрование пароля
+### код-ревью
+* Каждый фрагмент кода проходит ревью участниками, чтобы улучшить качество, выявить ошибки и повысить читаемость.
+* На основе фидбэка от участников вносятся изменения в код, чтобы улучшить его качество.
+### Документация 
+* мы будем делать техническую документацию в readme по основным функциям проекта и базы данных
+* на сайте мы не будем добавлять инстуркцию по пользования так как сайт очень просто и понятен
+* API не включает в себя проект
+### Тестирование на продакшн-среде (Pre-release)
+* Мы тестировали логин регистрацию покупку оплату обмен деньгами начисление средств
+* фича отвечает требованиям так же проверил учитель
+### Релиз
+* Создание и подготовка сборки, которая будет развернута на zone
+* Развертывание обновленной версии продукта на zone
+* Обеспечение контроля и быстрая реакция в случае, если в процессе развертывания возникают проблемы
+### Мониторинг и поддержка 
+*  следим за работой фичи в реальном времени, анализируя производительность системы и логи ошибок
+*  Получаем обратную связь от пользователей поможет выявить слабые места и улучшить продукт
+*  устраняем ошибки и улучшаем функционал на основе фидбэка
+### Ретроспектива 
+* В ходе разработки мы смогли сделать больше чем планировали и сайт работал отлично
+* улучшения добавить тех поддержку с пользователем
+* Мы хорошо распределили задачи и все смогли выявить себя и сделать хорошую работу 
+   
+  
 
