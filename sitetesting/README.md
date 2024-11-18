@@ -1,13 +1,6 @@
-# Cypress End-to-End Tests for H&M E-commerce Site
+# Cypress End-to-End Tests for web-balance E-commerce Site
 
 This repository contains end-to-end tests using **Cypress** for testing various features of the H&M e-commerce site, including login, add-to-cart functionality, and checkout.
-
-## Table of Contents
-
-1. [Login and Add to Cart Test](#login-and-add-to-cart-test)
-2. [Checkout Test](#checkout-test)
-3. [Invalid Login Test](#invalid-login-test)
-4. [Add Item to Cart Test](#add-item-to-cart-test)
 
 ---
 
@@ -17,7 +10,7 @@ This repository contains end-to-end tests using **Cypress** for testing various 
 This test ensures that a user can log in with valid credentials, add random products to the cart, and complete the checkout process.
 
 ### Test Steps
-1. **Navigate to Home Page**: The test starts by visiting the homepage of the H&M website.
+1. **Navigate to Home Page**: The test starts by visiting the homepage of the web-balance website.
 2. **Login**: The test clicks the login button, enters valid credentials (`username: maks`, `password: 123456`), and submits the login form.
 3. **Verify Login**: After login, the test checks if the user is successfully logged in by verifying the presence of the user balance on the page (`#user-balance`).
 4. **Add 5 Random Products to Cart**: The test selects 5 random products from the available items on the homepage and adds them to the shopping cart.
