@@ -100,3 +100,18 @@ Once the tests are complete, you can view detailed reports in the `cypress/repor
 ## Conclusion
 
 By running these tests, you ensure that the H&M e-commerce website remains functional and user-friendly, particularly for core actions like login, adding products to the cart, and completing the checkout process.
+
+## Table of tests
+| **Test Case ID** | **Test Description**                          | **Expected Result**                       | **Actual Result**                         | **Status**  | **Notes**         |
+|------------------|-----------------------------------------------|------------------------------------------|-------------------------------------------|-------------|-------------------|
+| TC001            | User login functionality                     | User should be logged in successfully    | User logged in without issues             | Pass        |                   |
+| TC002            | Add item to the cart                         | Item should appear in the cart           | Item added successfully                   | Pass        |                   |
+| TC003            | Checkout process with valid payment details   | Payment should be processed successfully | Payment processed without errors          | Pass        |                   |
+| TC004            | Checkout process with invalid payment details | Error message should appear              | Error message displayed correctly         | Pass        |                   |
+| TC005            | Removing item from the cart                  | Item should be removed from the cart     | Item removed successfully                 | Pass        |                   |
+| TC006            | UI responsiveness on mobile devices          | Layout should adapt to mobile screens    | Layout adjusted correctly                 | Pass        |                   |
+| TC007            | Search functionality                         | Search results should match query        | Results displayed as expected             | Pass        |                   |
+| TC008            | User logout functionality                    | User should be logged out successfully   | User logged out without issues            | Pass        |                   |
+
+
+
