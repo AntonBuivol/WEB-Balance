@@ -1,6 +1,6 @@
 # Cypress End-to-End Tests for web-balance E-commerce Site
 
-This repository contains end-to-end tests using **Cypress** for testing various features of the H&M e-commerce site, including login, add-to-cart functionality, and checkout.
+This repository contains end-to-end tests using **Cypress** for testing various features of the web-balance e-commerce site, including login, add-to-cart functionality, and checkout.
 
 ---
 
